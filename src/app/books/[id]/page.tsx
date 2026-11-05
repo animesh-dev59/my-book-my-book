@@ -2,6 +2,8 @@ import React from 'react';
 import { getbooks } from '../page';
 import { Ibook } from '@/types/Ibook';
 import Image from 'next/image';
+import ReadButton from '@/componnents/ButtonFunctionality/ReadButton';
+import WishListButton from '@/componnents/ButtonFunctionality/WishListButton';
 interface IViewDetailsPages { 
   params: Promise<{ 
     id:string
@@ -93,10 +95,8 @@ const ViewDetailsPages = async({params}:IViewDetailsPages) => {
 
           {/* Action Buttons */}
           <div className="flex gap-4 pt-4">
-            <button className="btn btn-outline px-8 rounded-lg">Read</button>
-            <button className="btn bg-[#50B1C9] hover:bg-[#3ea0b8] text-white px-8 rounded-lg border-none">
-              Wishlist
-            </button>
+            <ReadButton book={book}/>
+            <WishListButton book={book}/>
           </div>
         </div>
       </div>
